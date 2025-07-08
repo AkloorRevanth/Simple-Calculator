@@ -20,6 +20,11 @@ function safeEval(expression) {
 buttons.forEach(element => {
   element.addEventListener('click', (b) => {
     let buttonText = b.target.innerText.trim(); // Trim to handle any extra spaces
+    // Clear if last result was 'Error' or 'undefined'
+    if (string === 'Error' || string === 'undefined') {
+      string = '';
+      inputBox.value = '';
+    }
 
     if (buttonText === '=') {
       try {
